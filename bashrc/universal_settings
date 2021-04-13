@@ -1,0 +1,46 @@
+# General settings applicable to all devices
+
+# Load device specific aliases
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+# Aliases
+alias ll='ls -Al'
+# alias la='ls -A'
+alias l='ls -A'
+alias tree='tree -aI ".git"'
+
+# Help variables 
+actual_path=$(readlink -f "${BASH_SOURCE[0]}")
+script_dir=$(dirname "$actual_path")
+
+# Load git completion
+source $script_dir/git-completion.bash
+
+# Load with git prompt features
+source $script_dir/git-prompt.sh
+
+# Load ssh agent launching script
+source $script_dir/ssh_agent_launch
+
+# Set custom prompt style
+export GIT_PS1_SHOWDIRTYSTATE=1
+export GIT_PS1_SHOWUNTRACKEDFILES=1
+export GIT_PS1_SHOWUPSTREAM="auto"
+export GIT_PS1_STATESEPARATOR=' '
+export PS1='\[\033[1;32m\]\u\[\033[00m\]:\[\033[01;34m\]\w\[\033[0;36m\]$(__git_ps1 "(%s)")\[\033[00m\]\$ '
+
+# Trim long paths in prompt
+PROMPT_DIRTRIM=3
+
+# Set default editor
+export VISUAL=vim
+export EDITOR=$VISUAL
+
+# Set not blinking block cursor
+echo -ne "\e[2 q"
+
+# Hide . and .. directories from when using .* and automatically set dotglob which
+# cause that * also show hidden files
+export GLOBIGNORE=".:.." 
