@@ -113,4 +113,3 @@ script_dir=$(dirname "$actual_path")
 
 # Load universal settings applicable for all devices 
 source $script_dir/universal_settings
-export DUPA='Kupa'
