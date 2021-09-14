@@ -113,3 +113,6 @@ script_dir=$(dirname "$actual_path")
 
 # Load universal settings applicable for all devices 
 source $script_dir/universal_settings
+
+# Load device specific settings
+source $HOME/device_specific_settings

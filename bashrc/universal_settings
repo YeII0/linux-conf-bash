@@ -7,7 +7,7 @@ fi
 
 # Aliases
 alias ll='ls -Al'
-# alias la='ls -A'
+alias la='ls -A'
 alias l='ls -A'
 alias tree='tree -aI ".git"'
 
