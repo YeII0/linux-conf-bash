@@ -112,7 +112,9 @@ actual_path=$(readlink -f "${BASH_SOURCE[0]}")
 script_dir=$(dirname "$actual_path")
 
 # Load universal settings applicable for all devices 
-source $script_dir/universal_settings
+source $script_dir/.universal_settings
 
-# Load device specific settings
-source $HOME/device_specific_settings
+# Load device specific aliases
+if [ -f ~/.device_specific_settings ]; then
+    . ~/.device_specific_settings
+fi
