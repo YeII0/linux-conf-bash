@@ -118,3 +118,16 @@ source $script_dir/.universal_settings
 if [ -f ~/.device_specific_settings ]; then
     . ~/.device_specific_settings
 fi
+
+# Source ~/.env_vars_universal which stores universal settings
+if [ -f ~/.env_vars_universal ]; then
+  . ~/.env_vars_universal
+fi
+
+# Source ~/.env_vars_specific which stores device specific settings
+if [ -f ~/.env_vars_specific ]; then
+  . ~/.env_vars_specific
+fi
+
+# Add path for scripts to PATH variable
+export PATH=$PATH:$HOME/scripts/device_specific/path_scripts:$HOME/scripts/universal/path_scripts

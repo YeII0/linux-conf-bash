@@ -25,13 +25,3 @@ fi
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
-
-# Source ~/.env_vars_universal which stores universal settings
-if [ -f ~/.env_vars_universal ]; then
-  . ~/.env_vars_universal
-fi
-
-# Source ~/.env_vars_specific which stores device specific settings
-if [ -f ~/.env_vars_specific ]; then
-  . ~/.env_vars_specific
-fi
